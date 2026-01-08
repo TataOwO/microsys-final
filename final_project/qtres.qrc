@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>lightbulb.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Smart Light Control System</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <!-- Title -->
+   <widget class="QLabel" name="lblTitle">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>660</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Smart Light Control System</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+
+   <!-- LED Section -->
+   <widget class="QGroupBox" name="groupLEDs">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>660</width>
+      <height>120</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>LED Status (Press 1-4 to toggle)</string>
+    </property>
+
+    <!-- LED 1 -->
+    <widget class="QLabel" name="ledPic1">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>30</y>
+       <width>60</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="qtres.qrc">:/new/prefix1/lightbulb.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLED1">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>85</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED 1</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+
+    <!-- LED 2 -->
+    <widget class="QLabel" name="ledPic2">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>30</y>
+       <width>60</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="qtres.qrc">:/new/prefix1/lightbulb.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLED2">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>85</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED 2</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+
+    <!-- LED 3 -->
+    <widget class="QLabel" name="ledPic3">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>30</y>
+       <width>60</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="qtres.qrc">:/new/prefix1/lightbulb.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLED3">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>85</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED 3</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+
+    <!-- LED 4 -->
+    <widget class="QLabel" name="ledPic4">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>30</y>
+       <width>60</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="qtres.qrc">:/new/prefix1/lightbulb.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLED4">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>85</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>LED 4</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- ADC Sensor Section -->
+   <widget class="QGroupBox" name="groupADC">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>180</y>
+      <width>660</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Light Sensor (Photoresistor + MCP3008)</string>
+    </property>
+
+    <widget class="QLabel" name="lblADCLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>100</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ADC Value:</string>
+     </property>
+    </widget>
+
+    <widget class="QProgressBar" name="adcProgressBar">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>30</y>
+       <width>350</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>1023</number>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblADCValue">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>30</y>
+       <width>60</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblStatusLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>65</y>
+       <width>100</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Light Status:</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblLightStatus">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>65</y>
+       <width>100</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>--</string>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- Control Section -->
+   <widget class="QGroupBox" name="groupControl">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>290</y>
+      <width>320</width>
+      <height>140</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Data Input &amp; Control</string>
+    </property>
+
+    <widget class="QLabel" name="lblThresholdLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Threshold:</string>
+     </property>
+    </widget>
+
+    <widget class="QLineEdit" name="inputThreshold">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>30</y>
+       <width>100</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>500</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="btnSetThreshold">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>30</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Set</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblCurrentThreshold">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>65</y>
+       <width>120</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Current Threshold:</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblThresholdValue">
+     <property name="geometry">
+      <rect>
+       <x>145</x>
+       <y>65</y>
+       <width>60</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>500</string>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="btnToggleMode">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>130</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Switch to Auto</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblModeLabel">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>100</y>
+       <width>50</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Mode:</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblModeStatus">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>100</y>
+       <width>80</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>MANUAL</string>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- System Control Section -->
+   <widget class="QGroupBox" name="groupSystem">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>290</y>
+      <width>320</width>
+      <height>140</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>System Control</string>
+    </property>
+
+    <widget class="QPushButton" name="btnStart">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>90</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Start</string>
+     </property>
+     <property name="styleSheet">
+      <string>background-color: #4CAF50; color: white;</string>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="btnStop">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>30</y>
+       <width>90</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stop</string>
+     </property>
+     <property name="styleSheet">
+      <string>background-color: #f44336; color: white;</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblSysStatusLabel">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>30</y>
+       <width>50</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Status:</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblSystemStatus">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>30</y>
+       <width>80</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>STOPPED</string>
+     </property>
+     <property name="styleSheet">
+      <string>color: red;</string>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="btnBlinkAll">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>90</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Blink All</string>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="btnAllOn">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>70</y>
+       <width>90</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>All On</string>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="btnAllOff">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>70</y>
+       <width>90</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>All Off</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblShortcuts">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>110</y>
+       <width>290</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Shortcuts: 1-4=LED, A=Auto, B=Blink, S=Stop, H=Help</string>
+     </property>
+    </widget>
+   </widget>
+
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>700</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="qtres.qrc"/>
+ </resources>
+ <connections/>
+</ui>
