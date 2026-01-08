@@ -1,0 +1,1 @@
+cmd_/home/nvidia/Desktop/Lab10/demo.ko := ld -EL -r  -T ./scripts/module-common.lds -T ./arch/arm64/kernel/module.lds --build-id  -o /home/nvidia/Desktop/Lab10/demo.ko /home/nvidia/Desktop/Lab10/demo.o /home/nvidia/Desktop/Lab10/demo.mod.o ;  true
