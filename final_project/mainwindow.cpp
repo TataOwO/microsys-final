@@ -261,7 +261,7 @@ void MainWindow::onADCValueReceived(int value)
     ui->lblADCValue->setText(QString::number(value));
 
     // Update light status
-    if (value < threshold) {
+    if (value > threshold) {
         ui->lblLightStatus->setText("DARK");
         ui->lblLightStatus->setStyleSheet("color: #555; font-weight: bold;");
     } else {
@@ -277,7 +277,7 @@ void MainWindow::onADCValueReceived(int value)
 
 void MainWindow::autoControlLEDs()
 {
-    if (currentADC < threshold) {
+    if (currentADC > threshold) {
         // Dark environment - turn on LEDs
         setAllLEDs(true);
     } else {
