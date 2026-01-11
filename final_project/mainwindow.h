@@ -13,6 +13,16 @@ namespace Ui {
 class MainWindow;
 }
 
+// System states for the Machine Operation Control System
+enum class SystemState {
+    STANDBY,        // All LEDs ON steady, ready for commands
+    EXECUTING_1,    // LED1 blinking, executing item 1
+    EXECUTING_2,    // LED2 blinking, executing item 2
+    EXECUTING_3,    // LED3 blinking, executing item 3
+    EXECUTING_4,    // LED4 blinking, executing item 4
+    ALARM           // All LEDs fast blink, system locked
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -27,22 +37,25 @@ protected:
 
 private slots:
     // Button click handlers
-    void on_btnStart_clicked();
-    void on_btnStop_clicked();
-    void on_btnBlinkAll_clicked();
-    void on_btnAllOn_clicked();
-    void on_btnAllOff_clicked();
+    void on_btnStartADC_clicked();
+    void on_btnStopADC_clicked();
+    void on_btnDismissAlarm_clicked();
     void on_btnSetThreshold_clicked();
-    void on_btnToggleMode_clicked();
+    void on_btnExecute1_clicked();
+    void on_btnExecute2_clicked();
+    void on_btnExecute3_clicked();
+    void on_btnExecute4_clicked();
 
     // Timer slots
     void onADCTimerTimeout();
     void onBlinkTimerTimeout();
+    void onExecutionTimerTimeout();
+    void onAlarmBlinkTimerTimeout();
 
 private:
     Ui::MainWindow *ui;
 
-    // LED controllers (4 LEDs for Item 2)
+    // LED controllers (4 LEDs representing 4 machine operations)
     std::shared_ptr<gpio::LED_CTRL> LED1 = std::make_shared<gpio::LED_CTRL>(LOOKUP::PIN::P7);
     std::shared_ptr<gpio::LED_CTRL> LED2 = std::make_shared<gpio::LED_CTRL>(LOOKUP::PIN::P13);
     std::shared_ptr<gpio::LED_CTRL> LED3 = std::make_shared<gpio::LED_CTRL>(LOOKUP::PIN::P15);
@@ -54,36 +67,47 @@ private:
     bool led3State = false;
     bool led4State = false;
 
-    // ADC related (Item 3)
+    // ADC related (Safety sensor)
     QTimer *adcTimer;
     int currentADC = 0;
-    int threshold = 500;
+    int safetyThreshold = 600;  // ADC > threshold = DANGER
     QString adcScriptPath;
+    bool adcMonitoring = false;
 
-    // System state
-    bool systemRunning = false;
-    bool autoMode = false;
+    // System state machine
+    SystemState currentState = SystemState::STANDBY;
+    bool systemLocked = false;
+
+    // Execution related
+    int executingItem = 0;          // 0 = none, 1-4 = item number
+    int executionProgress = 0;      // 0-100%
+    int executionDuration = 5000;   // 5 seconds per item (ms)
+    QTimer *executionTimer;
 
     // Blink related
-    QTimer *blinkTimer;
+    QTimer *blinkTimer;             // For executing item blink
+    QTimer *alarmBlinkTimer;        // For alarm fast blink
     bool blinkState = false;
-    bool isBlinking = false;
 
     // Helper functions
     void initializeUI();
     void initializeTimers();
     void readADC();
     void onADCValueReceived(int value);
-    void autoControlLEDs();
     void updateLEDDisplay();
     void updateStatusDisplay();
 
     // LED control functions
-    void toggleLED(int ledNum);
     void setLED(int ledNum, bool state);
     void setAllLEDs(bool state);
-    void blinkAllLEDs();
-    void stopBlinking();
+
+    // State machine functions
+    void enterStandby();
+    void startExecution(int itemNumber);
+    void completeExecution();
+    void triggerAlarm();
+    void dismissAlarm();
+    void checkSafety(int adcValue);
 
     // Shortcut info
     void showShortcutHelp();
