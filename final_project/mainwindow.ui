@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>750</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Machine Operation Control System</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <!-- Title -->
+   <widget class="QLabel" name="lblTitle">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>710</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Machine Operation Control System</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+
+   <!-- System Status Section -->
+   <widget class="QGroupBox" name="groupStatus">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>45</y>
+      <width>710</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>System Status</string>
+    </property>
+
+    <widget class="QLabel" name="lblStateLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>25</y>
+       <width>50</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>State:</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblSystemState">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>25</y>
+       <width>150</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>STANDBY</string>
+     </property>
+     <property name="styleSheet">
+      <string>color: green; font-weight: bold;</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblLockLabel">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>25</y>
+       <width>40</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Lock:</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblLockStatus">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>25</y>
+       <width>100</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>UNLOCKED</string>
+     </property>
+     <property name="styleSheet">
+      <string>color: green; font-weight: bold;</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblMonLabel">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>25</y>
+       <width>70</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Monitor:</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblMonitoringStatus">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>25</y>
+       <width>50</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>OFF</string>
+     </property>
+     <property name="styleSheet">
+      <string>color: gray;</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblItemLabel">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>25</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Executing:</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblCurrentItem">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>25</y>
+       <width>70</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- LED Section -->
+   <widget class="QGroupBox" name="groupLEDs">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>110</y>
+      <width>450</width>
+      <height>120</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Machine Items (LEDs)</string>
+    </property>
+
+    <!-- LED 1 -->
+    <widget class="QLabel" name="ledPic1">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>25</y>
+       <width>50</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="qtres.qrc">:/new/prefix1/lightbulb.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLED1">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>68</y>
+       <width>70</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Item 1</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnExecute1">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>90</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Execute [1]</string>
+     </property>
+    </widget>
+
+    <!-- LED 2 -->
+    <widget class="QLabel" name="ledPic2">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>25</y>
+       <width>50</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="qtres.qrc">:/new/prefix1/lightbulb.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLED2">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>68</y>
+       <width>70</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Item 2</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnExecute2">
+     <property name="geometry">
+      <rect>
+       <x>115</x>
+       <y>90</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Execute [2]</string>
+     </property>
+    </widget>
+
+    <!-- LED 3 -->
+    <widget class="QLabel" name="ledPic3">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>25</y>
+       <width>50</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="qtres.qrc">:/new/prefix1/lightbulb.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLED3">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>68</y>
+       <width>70</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Item 3</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnExecute3">
+     <property name="geometry">
+      <rect>
+       <x>215</x>
+       <y>90</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Execute [3]</string>
+     </property>
+    </widget>
+
+    <!-- LED 4 -->
+    <widget class="QLabel" name="ledPic4">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>25</y>
+       <width>50</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="qtres.qrc">:/new/prefix1/lightbulb.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLED4">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>68</y>
+       <width>70</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Item 4</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnExecute4">
+     <property name="geometry">
+      <rect>
+       <x>315</x>
+       <y>90</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Execute [4]</string>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- Execution Progress Section -->
+   <widget class="QGroupBox" name="groupProgress">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>110</y>
+      <width>250</width>
+      <height>120</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Execution Progress</string>
+    </property>
+
+    <widget class="QProgressBar" name="executionProgressBar">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>30</y>
+       <width>220</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>0</number>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblStatus">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>70</y>
+       <width>220</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Ready for operation</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- Safety Monitoring Section -->
+   <widget class="QGroupBox" name="groupSafety">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>235</y>
+      <width>450</width>
+      <height>130</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Safety Monitoring (Proximity Sensor)</string>
+    </property>
+
+    <widget class="QLabel" name="lblADCLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ADC Value:</string>
+     </property>
+    </widget>
+
+    <widget class="QProgressBar" name="adcProgressBar">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>30</y>
+       <width>250</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>1023</number>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblADCValue">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>30</y>
+       <width>60</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblSafetyLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>65</y>
+       <width>80</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Safety:</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblSafetyStatus">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>65</y>
+       <width>200</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>--</string>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="btnStartADC">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>130</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Start Monitor [M]</string>
+     </property>
+     <property name="styleSheet">
+      <string>background-color: #4CAF50; color: white;</string>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="btnStopADC">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>100</y>
+       <width>130</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stop Monitor</string>
+     </property>
+     <property name="styleSheet">
+      <string>background-color: #f44336; color: white;</string>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="btnDismissAlarm">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>100</y>
+       <width>130</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Dismiss Alarm [U]</string>
+     </property>
+     <property name="styleSheet">
+      <string>background-color: #FF9800; color: white;</string>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- Threshold Control Section -->
+   <widget class="QGroupBox" name="groupThreshold">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>235</y>
+      <width>250</width>
+      <height>130</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Safety Threshold</string>
+    </property>
+
+    <widget class="QLabel" name="lblThresholdLabel">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>30</y>
+       <width>70</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Threshold:</string>
+     </property>
+    </widget>
+
+    <widget class="QLineEdit" name="inputThreshold">
+     <property name="geometry">
+      <rect>
+       <x>85</x>
+       <y>30</y>
+       <width>70</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>500</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+
+    <widget class="QPushButton" name="btnSetThreshold">
+     <property name="geometry">
+      <rect>
+       <x>165</x>
+       <y>30</y>
+       <width>70</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Set</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblCurrentLabel">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>65</y>
+       <width>60</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Current:</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblThresholdValue">
+     <property name="geometry">
+      <rect>
+       <x>75</x>
+       <y>65</y>
+       <width>60</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>500</string>
+     </property>
+    </widget>
+
+    <widget class="QLabel" name="lblThresholdNote">
+     <property name="geometry">
+      <rect>
+       <x>15</x>
+       <y>95</y>
+       <width>220</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>ADC > Threshold = DANGER
+(High ADC = Something blocking sensor)</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- Help Section -->
+   <widget class="QGroupBox" name="groupHelp">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>370</y>
+      <width>710</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Keyboard Shortcuts [H for Help]</string>
+    </property>
+
+    <widget class="QLabel" name="lblShortcuts">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>25</y>
+       <width>680</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>[1-4] Execute Item 1-4    |    [U] Unlock/Dismiss Alarm    |    [M] Toggle Safety Monitoring
+[ESC] Emergency Stop    |    [H] Show Help</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+
+   <!-- Operation Guide -->
+   <widget class="QLabel" name="lblGuide">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>450</y>
+      <width>710</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>STANDBY: All LEDs ON steady. Press 1-4 to execute an item.
+EXECUTING: Selected LED blinks. System locked until complete.
+ALARM: All LEDs blink fast. Press U to dismiss and return to STANDBY.</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="styleSheet">
+     <string>color: #666;</string>
+    </property>
+   </widget>
+
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>750</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="qtres.qrc"/>
+ </resources>
+ <connections/>
+</ui>
